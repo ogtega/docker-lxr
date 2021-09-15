@@ -4,7 +4,7 @@ services:
   db:
     image: mariadb
     volumes:
-      - ./sockets/mariadb:/var/run/mysqld/
+      - db-socket:/var/run/mysqld/
     environment:
       MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 'yes'
       MARIADB_ROOT_HOST: 'localhost'
@@ -13,11 +13,14 @@ services:
       dockerfile: Dockerfile
       context: .
     volumes:
-      - ./sockets/mariadb:/var/run/mysqld/
-      - ./glimpse:/opt/lxr/database/glimpse
+      - db-socket:/var/run/mysqld/
+      - glimpse:/opt/lxr/database/glimpse
       - ./src:/opt/lxr/src/
     depends_on:
       - db
     ports:
       - 8000:80
     restart: always
+volumes:
+  db-socket:
+  glimpse:

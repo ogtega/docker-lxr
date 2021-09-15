@@ -34,7 +34,8 @@ ADD scripts /usr/local/share/lxr/scripts
 RUN chmod +x scripts/entrypoint.sh
 RUN cp custom.d/lxr.conf .
 
-RUN cp custom.d/apache-lxrserver.conf /etc/apache2/sites-enabled/
+RUN cp custom.d/apache-lxrserver.conf /etc/apache2/sites-available/
+RUN ln -s /etc/apache2/sites-available/apache-lxrserver.conf /etc/apache2/sites-enabled/apache-lxrserver.conf
 
 ENTRYPOINT [ "/usr/local/share/lxr/scripts/entrypoint.sh" ]
 CMD [ "tail", "-f", "/dev/null" ]
