@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  db:
+    image: mariadb
+    volumes:
+      - ./sockets/mariadb:/var/run/mysqld/
+    environment:
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 'yes'
+      MARIADB_ROOT_HOST: 'localhost'
+  lxr:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - ./sockets/mariadb:/var/run/mysqld/
+      - ./glimpse:/opt/lxr/database/glimpse
+      - ./src:/opt/lxr/src/
+    depends_on:
+      - db
+    ports:
+      - 8000:80
+    restart: always

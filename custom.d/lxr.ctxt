@@ -1,0 +1,28 @@
+# -*- mode: perl -*-
+# Context file associated with lxr.conf
+# Created 2021-09-15 13:52:49 UTC
+# Strictly internal, do not play with content
+$context_created = 5;
+
+$cardinality = 's';
+$dbpolicy = 't';
+$dbengine = 'm';
+$nodbuser = 1;
+$nodbprefix = 1;
+$servertype = 'D';
+$scheme = '';
+$hostname = 'localhost';
+$port = '';
+$restricthost = ;
+@schemealiases = qw( 
+                   );
+@hostaliases = qw( 
+                 );
+@portaliases = qw( 
+                 );
+@restrictaliases = qw( 
+                     );
+$treematch = 'N';
+$commonvirtroot = 0;
+$virtrootbase = '';
+$virtrootpolicy = '';
