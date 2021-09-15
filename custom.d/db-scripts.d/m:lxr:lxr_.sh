@@ -10,11 +10,11 @@
 #       user rights.
 
 if [ ${M_U_lxr:-0} -lt 1 ] ; then 
-mysql -u root<<END_OF_USER
+mysql -u root <<END_OF_USER
 drop user if exists 'lxr'@'localhost';
 END_OF_USER
 echo "*** MySQL - Creating tree user lxr"
-mysql -u root<<END_OF_USER
+mysql -u root <<END_OF_USER
 create user 'lxr'@'localhost' identified by 'lxrpw';
 grant all on *.* to 'lxr'@'localhost';
 END_OF_USER
