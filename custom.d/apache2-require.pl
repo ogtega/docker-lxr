@@ -6,8 +6,8 @@
 #	Relative file paths are here relative to LXR root directory.
 
 @INC=	( @INC
-		, "/srv/lxr"		# <- LXR root directory
-		, "/srv/lxr/lib"	# <- LXR library directory
+		, "/etc/httpd/cgi-bin/lxr"		# <- LXR root directory
+		, "/etc/httpd/cgi-bin/lxr/lib"	# <- LXR library directory
 		);
 
 1;
