@@ -20,22 +20,23 @@ RUN cpanm DBI &&\
     cpanm File::MMagic &&\
 	cpanm DBD::MariaDB
 
-WORKDIR /usr/local/share
+WORKDIR /srv
 
 RUN curl -L https://sourceforge.net/projects/lxr/files/stable/lxr-2.3.6.tgz  > lxr.tgz &&\
     tar -xvf lxr.tgz &&\
-    mv lxr-2.3.6 lxr
+    mv lxr-2.3.6 lxr &&\
+    rm lxr.tgz
 
-WORKDIR /usr/local/share/lxr
+WORKDIR /srv/lxr
 
-ADD custom.d /usr/local/share/lxr/custom.d
-ADD scripts /usr/local/share/lxr/scripts
+ADD custom.d /srv/lxr/custom.d
+ADD scripts /srv/lxr/scripts
 
 RUN chmod +x scripts/entrypoint.sh
 RUN cp custom.d/lxr.conf .
 
-RUN cp custom.d/apache-lxrserver.conf /etc/apache2/sites-available/
-RUN ln -s /etc/apache2/sites-available/apache-lxrserver.conf /etc/apache2/sites-enabled/apache-lxrserver.conf
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN cp custom.d/apache-lxrserver.conf /etc/apache2/sites-available/000-default.conf
 
-ENTRYPOINT [ "/usr/local/share/lxr/scripts/entrypoint.sh" ]
+ENTRYPOINT [ "/srv/lxr/scripts/entrypoint.sh" ]
 CMD [ "tail", "-f", "/dev/null" ]
