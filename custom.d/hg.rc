@@ -1,5 +1,0 @@
-[extensions]
-lxr-ext = /etc/httpd/cgi-bin/lxr/custom.d/hg-lxr-ext.py
-
-[trusted]
-users = 

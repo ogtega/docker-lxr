@@ -6,16 +6,15 @@ services:
     volumes:
       - db-socket:/var/run/mysqld/
     environment:
-      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 'yes'
-      MARIADB_ROOT_HOST: 'localhost'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
   lxr:
     build:
       dockerfile: Dockerfile
       context: .
     volumes:
       - db-socket:/var/run/mysqld/
-      - glimpse:/opt/lxr/database/glimpse
-      - ./src:/opt/lxr/src/
+      - glimpse:/opt/database/glimpse
+      - ./src:/opt/src/
     depends_on:
       - db
     ports:

@@ -1,0 +1,3 @@
+[submodule "lxr"]
+	path = lxr
+	url = git://git.code.sf.net/p/lxr/git_repo
