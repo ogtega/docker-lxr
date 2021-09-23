@@ -27,7 +27,7 @@ ADD entrypoint.sh /opt/entrypoint.sh
 ADD custom/lxr.conf /opt/lxr/lxr.conf
 ADD custom/lxr.ctxt /opt/lxr/custom.d/lxr.ctxt
 ADD custom/m:lxr:lxr_.sh /opt/lxr/custom.d/db-scripts.d/m:lxr:lxr_.sh
-ADD custom/lighttpd-lxrserver.conf /etc/lighttpd/vhosts.d/lighttpd-lxrserver.conf
+ADD custom/lighttpd-lxrserver.conf /etc/lighttpd/conf-enabled/lighttpd-lxrserver.conf
 
 RUN chmod +x /opt/entrypoint.sh
 RUN ln -s /etc/lighttpd/conf-available/10-cgi.conf /etc/lighttpd/conf-enabled/10-cgi.conf
