@@ -25,8 +25,13 @@ WORKDIR /opt/lxr
 
 ADD entrypoint.sh /opt/entrypoint.sh
 ADD custom/lxr.conf /opt/lxr/lxr.conf
+
+ADD custom/folder.gif /opt/lxr/icons/folder.gif
+ADD custom/generic.gif /opt/lxr/icons/generic.gif
+
 ADD custom/lxr.ctxt /opt/lxr/custom.d/lxr.ctxt
 ADD custom/m:lxr:lxr_.sh /opt/lxr/custom.d/db-scripts.d/m:lxr:lxr_.sh
+
 ADD custom/lighttpd-lxrserver.conf /etc/lighttpd/conf-enabled/lighttpd-lxrserver.conf
 
 RUN chmod +x /opt/entrypoint.sh
