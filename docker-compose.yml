@@ -7,6 +7,7 @@ services:
       - db-socket:/var/run/mysqld/
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    restart: always
   lxr:
     build:
       dockerfile: Dockerfile
