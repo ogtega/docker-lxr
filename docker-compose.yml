@@ -4,6 +4,7 @@ services:
   db:
     image: mariadb
     volumes:
+      - db-data:/var/lib/mysql/
       - db-socket:/var/run/mysqld/
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
@@ -23,4 +24,5 @@ services:
     restart: always
 volumes:
   db-socket:
+  db-data:
   glimpse:
