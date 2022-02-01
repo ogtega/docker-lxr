@@ -4,8 +4,8 @@ services:
   db:
     image: mariadb
     volumes:
-      - db-data:/var/lib/mysql/
-      - db-socket:/var/run/mysqld/
+      - db-data:/var/lib/mysql
+      - db-socket:/var/run/mysqld
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     restart: always
@@ -14,8 +14,8 @@ services:
       dockerfile: Dockerfile
       context: .
     volumes:
-      - db-socket:/var/run/mysqld/
-      - glimpse:/opt/database/glimpse
+      - db-socket:/var/run/mysqld
+      - glimpse:/opt/database
       - ./src:/opt/src/
     depends_on:
       - db
